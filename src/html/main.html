@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>First Vue.js</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
-<body class="text-light bg-dark">
+<body>
 
 <h1>1. 基本の基</h1>
 
@@ -141,6 +140,43 @@
         el: '#app_2_2_3',
         data: {
             items: ['A', 'B', 'C']
+        }
+    });
+</script>
+
+<h1>3. ユーザー入力</h1>
+
+<h2>3-1. 入力値をレンダリング</h2>
+
+<div id="app_3_1">
+    <input type="text" v-model="message">
+    <p>The input message is {{message}}</p>
+</div>
+
+<script>
+    var app_3_1 = new Vue({
+        el: '#app_3_1',
+        data: {
+            message: "default"
+        }
+    });
+</script>
+
+<h1>4. イベント</h1>
+
+<h2>4-1. クリック</h2>
+
+<div id="app_4_1">
+    <button v-on:click="method1">ボタン</button>
+</div>
+
+<script>
+    var app_4_1 = new Vue({
+        el: '#app_4_1',
+        methods: {
+            method1: function(event) {
+                alert('Button was clicked');
+            }
         }
     });
 </script>
